@@ -1,0 +1,59 @@
+body{
+    background-color: #F6F6FA;
+    font-family: "Montserrat", sans-serif;
+}
+
+.weather-app{
+    background: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+    border-radius: 20px;
+}
+
+a{
+    color: blueviolet ;
+}
+
+.header{
+    border-bottom: 1px solid #f9f7fe;
+    padding: 0 0 30px 0;
+}
+
+.search-form-input{
+    background-color: #F6F6FA;
+    border:none;
+    border-radius: 6px;
+    width: 80%;
+    padding: 15px 20px;
+    font-size: 15px;
+}
+
+.search-form-button{
+    background-color: blueviolet;
+    padding: 15px 30px;
+    border:none;
+    border-radius:6px ;
+    color: white;
+    margin-left:  10px;
+    font-size: 15px;
+}
+
+
+.weather-data{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+main{
+    padding: 30px 0;
+}
+.footer{
+    border-top: 1px solid #f9f7fe;
+    padding: 30px 0 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6)
+}

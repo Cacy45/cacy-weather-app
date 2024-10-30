@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="weather-app">
@@ -30,7 +31,7 @@
       <main>
         <div class="weather-data">
           <div>
-            <h1 class="current-city" id="current-city">Durban</h1>
+            <h1 class="current-city" id="current-city"></h1>
             <p class="weather-deatils">
               Wednesday 01:17, scattered showers <br />
               Humidity: <strong>66%</strong> , Wind: <strong>3.13km/h</strong>
@@ -38,7 +39,7 @@
           </div>
           <div class="weather-container">
           <div class="weather-icon">🌧️</div>
-          <div class="weather-temperature">18</div>
+          <div class="weather-temperature" id="weather-temperature"></div>
           <div class="weather-unit">°C</div>
         </div>
         </div>

@@ -15,11 +15,12 @@
   <body>
     <div class="weather-app">
       <header class="header">
-        <form action="" class="search-form">
+        <form action="" class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city..."
             required
+            id="search-form-input"
             class="search-form-input"
           />
           <input type="submit" value="search" class="search-form-button" />
@@ -29,7 +30,7 @@
       <main>
         <div class="weather-data">
           <div>
-            <h1 class="current-city">Durban</h1>
+            <h1 class="current-city" id="current-city">Durban</h1>
             <p class="weather-deatils">
               Wednesday 01:17, scattered showers <br />
               Humidity: <strong>66%</strong> , Wind: <strong>3.13km/h</strong>
@@ -48,5 +49,6 @@
         <a href="https://github.com/Cacy45/cacy-weather-app">Cacilda</a>
       </footer>
     </div>
+    <script src="src/index.js"></script>
   </body>
 </html>

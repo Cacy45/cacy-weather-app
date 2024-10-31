@@ -10,7 +10,6 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector("#icon");
 
-
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon" alt="Weather icon" />`;
   timeElement.innerHTML = formatDate(date);
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
@@ -21,25 +20,25 @@ function refreshWeather(response) {
 }
 
 function formatDate(date) {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-    ];
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-    if (minutes < 10){
-minutes = `0${minutes}`;
-    }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-    let day = days[date.getDay()];
+  let day = days[date.getDay()];
 
-    return `${day}, ${hours}:${minutes}`;
+  return `${day}, ${hours}:${minutes}`;
 }
 
 function searchCity(city) {
@@ -54,6 +53,34 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Tues", "Wed", "Thurs", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+<div class="weather-forecast">
+<div class="forecast-day">
+<div class="forecast-date">${day}</div>
+<div class="forecast-icon">🌧️</div>
+            <div class="forecast-temperatures">
+              <div class="forecast-temperature">
+                <strong>15°C</strong>
+              </div>
+              <div class="forecast-temperature">23°C</div>
+            </div>
+          </div>
+          </div>
+          `;
+  });
+
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = forecastHtml;
+}
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 //searchCity="Paris"; // default city value
+
+displayForecast();

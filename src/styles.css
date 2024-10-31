@@ -40,6 +40,10 @@ a{
     font-size: 15px;
 }
 
+main{
+    padding: 30px 0;
+}
+
 
 .weather-data{
     display: flex;
@@ -80,9 +84,46 @@ a{
     
 }
 
-main{
-    padding: 30px 0;
+.forecast-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
 }
+
+.weather-forecast{
+    display: flex;
+    
+    
+}
+
+.forecast-date{
+    text-align:center;
+    color:rgba(39, 33, 66, 0.4);
+    font-size: 16px;
+    line-height: 20px ;
+    margin-bottom: 10px;
+}
+
+.forecast-icon{
+    font-size: 38px;
+    text-align: center;
+}
+
+.forecast-temperatures{
+    text-align: center;
+    color:blueviolet;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.forecast-temperature{
+    padding: 0 10px;
+}
+
+
+
 .footer{
     border-top: 1px solid #f9f7fe;
     padding: 30px 0 0 0;

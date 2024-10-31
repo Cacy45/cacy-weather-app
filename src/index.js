@@ -1,7 +1,7 @@
 function refreshWeather(response) {
   let temperatureElement = document.querySelector("#weather-temperature");
-  console.log(temperatureElement);
-  let temperature = Math.round(response.data.temperature.current);
+  let temperature = response.data.temperature.current;
+  console.log(temperature);
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#description");
   let humidtyElement = document.querySelector("#humidity");
@@ -10,13 +10,15 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector("#icon");
 
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon" alt="Weather icon" />`;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon" />`;
   timeElement.innerHTML = formatDate(date);
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   humidtyElement.innerHTML = `${response.data.temperature.humidity}%`;
   descriptionElement.innerHTML = response.data.condition.description;
   cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = temperature;
+  temperatureElement.innerHTML = Math.round(temperature);
+
+  //getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -53,7 +55,14 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city){
+  let myApiKey = "af55121o24b9f5169b1be07t33c94a6a";
+  let myApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${myApiKey}&units=metric`;
+  axios.get(myApiUrl).then(displayForecast);
+
+};
+
+function displayForecast(response) {
   let days = ["Tues", "Wed", "Thurs", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -76,11 +85,13 @@ function displayForecast() {
           `;
   });
 
-  let forecast = document.querySelector("#forecast");
+  let forecast = document.querySelector("#forecast-container");
   forecast.innerHTML = forecastHtml;
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
-//searchCity="Paris"; // default city value
+searchCity=("Paris"); // default city value
 
-displayForecast();
+//displayForecast();
+//getForecast("Paris");
+
